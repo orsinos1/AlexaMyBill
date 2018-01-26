@@ -1,0 +1,149 @@
+{
+  "languageModel": {
+    "intents": [
+      {
+        "name": "AccountNumberIntent",
+        "samples": [
+          "My account number is {AccountNumOne} {AccountNumTwo} {AccountNumThree} {AccountNumFour} {AccountNumFive} {AccountNumSix} {AccountNumSeven} {AccountNumEight} {AccountNumNine} {AccountNumTen}"
+        ],
+        "slots": [
+          {
+            "name": "AccountNumOne",
+            "type": "AMAZON.NUMBER"
+          },
+          {
+            "name": "AccountNumTwo",
+            "type": "AMAZON.NUMBER"
+          },
+          {
+            "name": "AccountNumThree",
+            "type": "AMAZON.NUMBER"
+          },
+          {
+            "name": "AccountNumFour",
+            "type": "AMAZON.NUMBER"
+          },
+          {
+            "name": "AccountNumFive",
+            "type": "AMAZON.NUMBER"
+          },
+          {
+            "name": "AccountNumSix",
+            "type": "AMAZON.NUMBER"
+          },
+          {
+            "name": "AccountNumSeven",
+            "type": "AMAZON.NUMBER"
+          },
+          {
+            "name": "AccountNumEight",
+            "type": "AMAZON.NUMBER"
+          },
+          {
+            "name": "AccountNumNine",
+            "type": "AMAZON.NUMBER"
+          },
+          {
+            "name": "AccountNumTen",
+            "type": "AMAZON.NUMBER"
+          }
+        ]
+      },
+      {
+        "name": "AMAZON.CancelIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.HelpIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.StopIntent",
+        "samples": []
+      },
+      {
+        "name": "LoginIntent",
+        "samples": [
+          "What is my bill total"
+        ],
+        "slots": []
+      },
+      {
+        "name": "SaveAddressIntent",
+        "samples": [
+          "My address is {PostalAddress}",
+          "I live on {PostalAddress}",
+          "my street address is {PostalAddress}",
+          "my house is {PostalAddress}",
+          "I live at {PostalAddress}",
+          "{PostalAddress}"
+        ],
+        "slots": [
+          {
+            "name": "PostalAddress",
+            "type": "AMAZON.PostalAddress"
+          }
+        ]
+      },
+      {
+        "name": "SaveSSNIntent",
+        "samples": [
+          "my last four digits are {SSNOne} {SSNTwo} {SSNThree} {SSNFour}",
+          "the last four digits of my social security number are {SSNOne} {SSNTwo} {SSNThree} {SSNFour}",
+          "the last four digits are {SSNOne} {SSNTwo} {SSNThree} {SSNFour}",
+          "{SSNOne} {SSNTwo} {SSNThree} {SSNFour}"
+        ],
+        "slots": [
+          {
+            "name": "SSNOne",
+            "type": "AMAZON.NUMBER"
+          },
+          {
+            "name": "SSNTwo",
+            "type": "AMAZON.NUMBER"
+          },
+          {
+            "name": "SSNThree",
+            "type": "AMAZON.NUMBER"
+          },
+          {
+            "name": "SSNFour",
+            "type": "AMAZON.NUMBER"
+          }
+        ]
+      }
+    ],
+    "invocationName": "login test"
+  },
+  "prompts": [
+    {
+      "id": "Confirm.Intent-SaveAddressIntent",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Is this address correct?"
+        }
+      ]
+    }
+  ],
+  "dialog": {
+    "intents": [
+      {
+        "name": "SaveAddressIntent",
+        "confirmationRequired": true,
+        "prompts": {
+          "confirmation": "Confirm.Intent-SaveAddressIntent"
+        },
+        "slots": [
+          {
+            "name": "PostalAddress",
+            "type": "AMAZON.PostalAddress",
+            "elicitationRequired": false,
+            "confirmationRequired": false,
+            "prompts": {}
+          }
+        ]
+      }
+    ]
+  }
+}
